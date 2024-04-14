@@ -4,8 +4,6 @@
 #include <cmath>
 #include <omp.h>
 #include "FFT.cpp"
-
-// Main
 int main(int argc, char* argv[]) {
     int num_threads = 1; // Default number of threads
 
@@ -22,14 +20,18 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::complex<double>> x(N), y(N);
 
-    std::cout << "Enter the first sequence: \n";
-    for(int i = 0; i < N; i++) {
-        std::cin >> x[i];
+    std::cout << "Enter the first sequence (space-separated): ";
+    for (int i = 0; i < N; i++) {
+        double real;
+        std::cin >> real;
+        x[i] = std::complex<double>(real, 0.0); // Assuming imaginary part is 0
     }
 
-    std::cout << "Enter the second sequence: \n";
-    for(int i = 0; i < N; i++) {
-        std::cin >> y[i];
+    std::cout << "Enter the second sequence (space-separated): ";
+    for (int i = 0; i < N; i++) {
+        double real;
+        std::cin >> real;
+        y[i] = std::complex<double>(real, 0.0); // Assuming imaginary part is 0
     }
 
     // Padding
